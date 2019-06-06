@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Tiago F. Marques | Blog</title>
+ <link href="https://www.tiagofigmarques.dev//atom.xml" rel="self"/>
+ <id>https://www.tiagofigmarques.dev/</id>
+ <updated>2019-06-07T00:42:56+01:00</updated>
+ <author>
+   <name>Tiago F. Marques</name>
+   <uri>https://www.tiagofigmarques.dev/</uri>
+   <email>hello@tiagofigmarques.dev</email>
+ </author>
+
+ 
+
+ <entry>
+   <title>Hello World!</title>
+   <link href="https://www.tiagofigmarques.dev//hello-world"/>
+   <id>https://www.tiagofigmarques.dev//hello-world</id>
+   <updated>2019-06-06T00:00:00+01:00</updated>
+   <content type="html">&lt;p&gt;This is my first post. You can read a bit about myself &lt;a href=&quot;/about&quot;&gt;here&lt;/a&gt;!&lt;/p&gt;
+</content>
+ </entry>
+
+ 
+
+</feed>
