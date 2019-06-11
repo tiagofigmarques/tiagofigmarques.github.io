@@ -5,7 +5,7 @@ title: About Me
 # About me
 ![Profile](img/me.jpg "Profile Picture")
 
-Hi. My name is Tiago Figueiredo Marques, I’m twenty nine years old and I’m a software engineer currently working on large scale web applications.
+Hi. My name is Tiago Figueiredo Marques, I’m thirty years old and I’m a software engineer currently working on large scale web applications.
 
 I’d enjoy to hear from you! [tiagofigmarques@gmail.com](mailto:hello@tiagofigmarques.dev)
 
