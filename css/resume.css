@@ -338,6 +338,22 @@ section.resume-section .resume-item .resume-date {
   color: #5b7fff !important;
 }
 
+.name-logo {
+  font-family: 'Saira Extra Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 5rem;
+  letter-spacing: -0.02em;
+  color: #e4e6f0;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+
+.name-last {
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
 a {
   color: #5b7fff;
   transition: color 0.3s ease;
