@@ -35,6 +35,17 @@ $danger:        $red !default;
 $light:         $gray-100 !default;
 $dark:          $gray-800 !default;
 
+// Dark Theme Colors
+$bg-dark:        #0a0c1a;
+$bg-card:        rgba(18, 20, 45, 0.5);
+$bg-card-hover:  rgba(18, 20, 45, 0.7);
+$accent-blue:    #5b7fff;
+$accent-purple:  #9b6dff;
+$text-light:     #c8cce0;
+$text-muted-dark: #8b90b0;
+$heading-light:  #e4e6f0;
+$tag-color:      #a0b4ff;
+
 // Page Variables
 
 $sidebar-base-width: 17rem;

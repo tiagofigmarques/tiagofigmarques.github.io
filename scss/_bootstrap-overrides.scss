@@ -1,16 +1,29 @@
 .bg-primary {
-  background-color: $primary !important;
+  background-color: rgba($bg-dark, 0.85) !important;
 }
 
 .text-primary {
-  color: $primary !important;
+  color: $accent-blue !important;
 }
 
 a {
-  color: $primary;
+  color: $accent-blue;
+  transition: color 0.3s ease;
   &:hover,
   &:focus,
   &:active {
-    color: darken($primary, 15%);
+    color: $accent-purple;
   }
+}
+
+.text-secondary {
+  color: $text-muted-dark !important;
+}
+
+.text-dark {
+  color: $text-light !important;
+}
+
+hr {
+  border-color: rgba($accent-purple, 0.1);
 }

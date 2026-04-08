@@ -1,12 +1,44 @@
 #sideNav {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba($accent-blue, 0.1);
+
   .navbar-nav .nav-item .nav-link {
     font-weight: 800;
     letter-spacing: 0.05rem;
     text-transform: uppercase;
+    color: rgba($white, 0.5);
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 1.5rem;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%) scaleY(0);
+      width: 3px;
+      height: 60%;
+      background: linear-gradient(180deg, $accent-blue, $accent-purple);
+      border-radius: 3px;
+      transition: transform 0.3s ease;
+    }
+    &:hover {
+      color: $white;
+      &::before {
+        transform: translateY(-50%) scaleY(1);
+      }
+    }
+    &.active {
+      color: $accent-blue;
+      &::before {
+        transform: translateY(-50%) scaleY(1);
+      }
+    }
   }
   .navbar-toggler {
     &:focus {
-      outline-color: lighten($primary, 15%);
+      outline-color: $accent-purple;
     }
   }
 }
@@ -31,7 +63,7 @@
       .img-profile {
         max-width: 10rem;
         max-height: 10rem;
-        border: 0.5rem solid fade-out($white, 0.8);
+        border: 0.5rem solid rgba($accent-blue, 0.3);
       }
     }
     .navbar-collapse {

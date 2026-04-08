@@ -4,10 +4,13 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-resume/blob/master/LICENSE)
  */
 
+/* ========== BASE ========== */
+
 body {
-  font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   padding-top: 54px;
-  color: #868e96;
+  color: #c8cce0;
+  background: #0c0e1e;
 }
 
 @media (min-width: 992px) {
@@ -23,10 +26,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-weight: 700;
   text-transform: uppercase;
-  color: #343a40;
+  color: #e4e6f0;
 }
 
 h1 {
@@ -42,6 +45,11 @@ h3 {
   font-size: 2rem;
 }
 
+h4 {
+  font-size: 1.25rem;
+  color: #8b90b0;
+}
+
 p.lead {
   font-size: 1.15rem;
   font-weight: 400;
@@ -50,20 +58,84 @@ p.lead {
 .subheading {
   text-transform: uppercase;
   font-weight: 500;
-  font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 1.5rem;
+  color: #8b90b0;
 }
+
+.about-location {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  color: #6b7090;
+  margin-bottom: 0.4rem;
+}
+
+.about-email {
+  margin-bottom: 2rem;
+}
+
+.about-email a {
+  color: #5b7fff !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.01rem;
+}
+
+.about-email a:hover {
+  color: #9b6dff !important;
+}
+
+/* ========== PERSONAL NOTE ========== */
+
+.about-personal {
+  font-size: 0.9rem;
+  font-style: normal;
+  color: #6b7090;
+  margin-bottom: 1.5rem;
+}
+
+/* ========== TAGS / PILLS ========== */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03rem;
+  color: #a0b4ff;
+  background: rgba(91, 127, 255, 0.1);
+  border: 1px solid rgba(91, 127, 255, 0.2);
+  border-radius: 999px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.tag:hover {
+  background: rgba(91, 127, 255, 0.2);
+  border-color: rgba(91, 127, 255, 0.4);
+  color: #c0d0ff;
+  transform: translateY(-1px);
+}
+
+/* ========== SOCIAL ICONS ========== */
 
 .social-icons a {
   display: inline-block;
-  height: 3.5rem;
-  width: 3.5rem;
-  background-color: #e9ecef;
-  color: #1E234E !important;
-  text-align: center;
-  font-size: 1.5rem;
-  line-height: 3.5rem;
-  margin-right: 1rem;
+  color: #6b7090 !important;
+  font-size: 1.25rem;
+  margin-right: 1.25rem;
+  transition: all 0.3s ease;
 }
 
 .social-icons a:last-child {
@@ -71,7 +143,8 @@ p.lead {
 }
 
 .social-icons a:hover {
-  background-color: #ced4da;
+  color: #5b7fff !important;
+  transform: translateY(-2px);
 }
 
 .dev-icons {
@@ -79,17 +152,56 @@ p.lead {
 }
 
 .dev-icons .list-inline-item i:hover {
-  color: #1E234E;
+  color: #9b6dff;
+}
+
+/* ========== SIDEBAR NAV ========== */
+
+#sideNav {
+  background: #0c0e1e;
 }
 
 #sideNav .navbar-nav .nav-item .nav-link {
   font-weight: 800;
   letter-spacing: 0.05rem;
   text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+#sideNav .navbar-nav .nav-item .nav-link::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  width: 3px;
+  height: 60%;
+  background: linear-gradient(180deg, #5b7fff, #9b6dff);
+  border-radius: 3px;
+  transition: transform 0.3s ease;
+}
+
+#sideNav .navbar-nav .nav-item .nav-link:hover {
+  color: #fff;
+}
+
+#sideNav .navbar-nav .nav-item .nav-link:hover::before {
+  transform: translateY(-50%) scaleY(1);
+}
+
+#sideNav .navbar-nav .nav-item .nav-link.active {
+  color: #5b7fff;
+}
+
+#sideNav .navbar-nav .nav-item .nav-link.active::before {
+  transform: translateY(-50%) scaleY(1);
 }
 
 #sideNav .navbar-toggler:focus {
-  outline-color: #333c85;
+  outline-color: #9b6dff;
 }
 
 @media (min-width: 992px) {
@@ -111,7 +223,7 @@ p.lead {
   #sideNav .navbar-brand .img-profile {
     max-width: 10rem;
     max-height: 10rem;
-    border: 0.5rem solid rgba(255, 255, 255, 0.2);
+    border: 0.5rem solid rgba(91, 127, 255, 0.3);
   }
   #sideNav .navbar-collapse {
     display: flex;
@@ -132,10 +244,32 @@ p.lead {
   }
 }
 
+/* ========== RESUME SECTIONS ========== */
+
 section.resume-section {
   padding-top: 5rem !important;
   padding-bottom: 5rem !important;
   max-width: 75rem;
+  position: relative;
+}
+
+section.resume-section .resume-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 1.75rem;
+  transition: all 0.4s ease;
+}
+
+section.resume-section .resume-item:hover {
+  border-color: rgba(91, 127, 255, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+section.resume-section .resume-item .resume-content {
+  flex: 1;
 }
 
 section.resume-section .resume-item .resume-date {
@@ -158,18 +292,124 @@ section.resume-section .resume-item .resume-date {
   }
 }
 
-.bg-primary {
-  background-color: #1E234E !important;
+/* ========== SUBPROJECTS ========== */
+
+.resume-subproject-list {
+  margin-top: 1.25rem;
 }
 
+.resume-subproject-item {
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.resume-subproject-item + .resume-subproject-item {
+  margin-top: 1rem;
+}
+
+.badge-current {
+  display: inline-block;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  color: #6ee6a0;
+  background: rgba(110, 230, 160, 0.1);
+  border: 1px solid rgba(110, 230, 160, 0.2);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  vertical-align: 0.3em;
+  margin-left: 0.5rem;
+}
+
+/* ========== BOOTSTRAP OVERRIDES ========== */
+
 .text-primary {
-  color: #1E234E !important;
+  color: #5b7fff !important;
 }
 
 a {
-  color: #1E234E;
+  color: #5b7fff;
+  transition: color 0.3s ease;
 }
 
 a:hover, a:focus, a:active {
-  color: #090a17;
+  color: #9b6dff;
+}
+
+.text-secondary {
+  color: #8b90b0 !important;
+}
+
+.text-dark {
+  color: #c8cce0 !important;
+}
+
+hr {
+  border: none;
+  height: 0;
+  margin: 0;
+}
+
+/* ========== SECTION HEADINGS ========== */
+
+section.resume-section > .w-100 > h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.75rem;
+}
+
+section.resume-section > .w-100 > h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #5b7fff, #9b6dff);
+  border-radius: 3px;
+}
+
+/* ========== DATE BADGES ========== */
+
+.resume-date .text-primary {
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(91, 127, 255, 0.08);
+  border: 1px solid rgba(91, 127, 255, 0.15);
+  border-radius: 999px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* ========== SCROLLBAR ========== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0c0e1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(91, 127, 255, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(91, 127, 255, 0.5);
+}
+
+/* ========== SELECTION ========== */
+
+::selection {
+  background: rgba(91, 127, 255, 0.3);
+  color: #fff;
 }
