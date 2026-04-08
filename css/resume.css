@@ -92,10 +92,11 @@ p.lead {
 /* ========== PERSONAL NOTE ========== */
 
 .about-personal {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-style: normal;
-  color: #6b7090;
+  color: #555a78;
   margin-bottom: 1.5rem;
+  letter-spacing: 0.02rem;
 }
 
 /* ========== TAGS / PILLS ========== */
@@ -129,6 +130,11 @@ p.lead {
 }
 
 /* ========== SOCIAL ICONS ========== */
+
+.social-icons {
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
 
 .social-icons a {
   display: inline-block;
