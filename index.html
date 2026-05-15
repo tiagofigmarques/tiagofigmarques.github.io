@@ -1,262 +1,679 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Tiago Figueiredo Marques — Senior Software Engineer based in Portugal. 12+ years building large-scale distributed systems, e-commerce platforms, and microservices for global brands.">
-  <meta name="author" content="Tiago Figueiredo Marques">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tiago Marques — Software Engineer</title>
+<meta name="description" content="Tiago Figueiredo Marques — Senior Software Engineer based in Portugal. 12+ years building large-scale distributed systems and e-commerce platforms." />
 
-  <meta property="og:title" content="Tiago Marques | Software Engineer">
-  <meta property="og:description" content="Senior Software Engineer with 12+ years of experience building large-scale distributed systems, e-commerce platforms, and microservices for global brands.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tiagofigmarques.github.io">
-  <meta property="og:locale" content="en_US">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <title>Tiago Marques | Curriculum Vitæ</title>
+<style>
+  :root {
+    --bg:        #0f0f0e;
+    --bg-elev:   #18181a;
+    --grid:      #1f1f22;
+    --grid-soft: #181819;
+    --ink:       #ededec;
+    --ink-soft:  #a1a1a0;
+    --ink-mute:  #5f5f5e;
+    --rule:      #28282b;
+    --accent:    #7c9fff;
+    --accent-ink:#0f0f0e;
 
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    --f-sans:    "Space Grotesk", "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --f-mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
-  <!-- Custom fonts for this template -->
-  <link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    --gutter:    clamp(20px, 4vw, 48px);
+    --maxw:      1240px;
+  }
 
-  <!-- Custom styles for this template -->
-  <link href="css/resume.min.css" rel="stylesheet">
+  [data-theme="light"] {
+    --bg:        #f4f3ee;
+    --bg-elev:   #ffffff;
+    --grid:      #e4e0d2;
+    --grid-soft: #ede9da;
+    --ink:       #0e0e0c;
+    --ink-soft:  #4d4c47;
+    --ink-mute:  #908d82;
+    --rule:      #d9d4c3;
+    --accent:    #1e1e1c;
+    --accent-ink:#f4f3ee;
+  }
 
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--f-sans);
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "ss03", "kern", "tnum";
+  }
+  ::selection { background: var(--accent); color: var(--accent-ink); }
+  a { color: inherit; text-decoration: none; }
+
+  /* subtle ambient background — soft radial glow, no grid */
+  .grid-bg {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% -10%,
+        color-mix(in oklab, var(--accent) 9%, transparent) 0%,
+        transparent 60%),
+      radial-gradient(ellipse 50% 40% at 90% 100%,
+        color-mix(in oklab, var(--accent) 5%, transparent) 0%,
+        transparent 70%);
+  }
+  /* faint film-grain for warmth (dark only) */
+  body::before {
+    content: "";
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    opacity: .025;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  [data-theme="light"] body::before { opacity: .015; }
+
+  .shell {
+    position: relative; z-index: 1;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    border-left: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    min-height: 100vh;
+  }
+
+  /* ─── Status bar ────────────────────────────────────── */
+  .statusbar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    padding: 14px 0;
+    gap: 16px;
+  }
+  .statusbar .left, .statusbar .right { display: flex; gap: 18px; align-items: center; }
+  .statusbar .right { justify-content: flex-end; }
+  .statusbar .mid {
+    color: var(--ink);
+    letter-spacing: .14em;
+  }
+  .statusbar b { color: var(--ink); font-weight: 500; }
+  .live-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 0 var(--accent);
+    animation: pulse 2.2s cubic-bezier(.4,0,.6,1) infinite;
+    display: inline-block;
+  }
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0   color-mix(in oklab, var(--accent) 55%, transparent); }
+    70%  { box-shadow: 0 0 0 8px color-mix(in oklab, var(--accent) 0%,  transparent); }
+    100% { box-shadow: 0 0 0 0   color-mix(in oklab, var(--accent) 0%,  transparent); }
+  }
+  @media (max-width: 720px) {
+    .statusbar { grid-template-columns: 1fr 1fr; }
+    .statusbar .mid { display: none; }
+  }
+
+  /* ─── Masthead ──────────────────────────────────────── */
+  .masthead {
+    padding: clamp(40px, 7vw, 96px) 0 clamp(28px, 4vw, 56px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .masthead h1 {
+    margin: 0 0 clamp(28px, 4vw, 44px);
+    font-family: var(--f-sans);
+    font-weight: 500;
+    font-size: clamp(22px, 2.6vw, 34px);
+    line-height: 1.25;
+    letter-spacing: -.018em;
+    color: var(--ink);
+    display: flex; flex-wrap: wrap; align-items: baseline;
+    gap: .35em;
+  }
+  .masthead h1 .name { color: var(--ink); }
+  .masthead h1 .dim  { color: var(--ink-mute); font-weight: 400; }
+  /* rotating word — vertical scroll viewport */
+  .swap {
+    display: inline-block;
+    height: 1.2em; line-height: 1.2em;
+    overflow: hidden;
+    vertical-align: -0.18em;
+    color: var(--accent);
+    position: relative;
+    min-width: 11ch;
+  }
+  .swap ul {
+    list-style: none; margin: 0; padding: 0;
+    animation: swap 18s cubic-bezier(.86,0,.07,1) infinite;
+  }
+  .swap li { height: 1.2em; line-height: 1.2em; white-space: nowrap; }
+  @keyframes swap {
+    0%, 14%   { transform: translateY(0); }
+    18%, 32%  { transform: translateY(-1.2em); }
+    36%, 50%  { transform: translateY(-2.4em); }
+    54%, 68%  { transform: translateY(-3.6em); }
+    72%, 86%  { transform: translateY(-4.8em); }
+    90%, 100% { transform: translateY(-6em); }
+  }
+  /* blinking caret */
+  .caret {
+    display: inline-block;
+    width: 2px; height: 1em;
+    background: var(--accent);
+    transform: translateY(.12em);
+    margin-left: 6px;
+    animation: blink 1.1s steps(2, end) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  .masthead h1 .slash { display: none; }
+  .masthead .sub {
+    margin: 0;
+    max-width: none;
+  }
+  .masthead .role-line {
+    font-family: var(--f-mono);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: var(--ink);
+    display: flex; align-items: center; gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .masthead .role-line .pill {
+    border: 1px solid var(--rule);
+    padding: 4px 10px;
+    color: var(--ink-soft);
+    border-radius: 2px;
+  }
+  .masthead .bio {
+    font-family: var(--f-sans);
+    color: var(--ink-soft);
+    font-size: clamp(15px, 1.4vw, 17px);
+    line-height: 1.55;
+    max-width: none;
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .masthead .bio strong { color: var(--ink); font-weight: 500; }
+  .masthead .bio em.kw {
+    font-style: normal;
+    color: var(--ink);
+    font-weight: 500;
+    border-bottom: 1px solid color-mix(in oklab, var(--accent) 50%, transparent);
+    padding-bottom: 1px;
+  }
+  .masthead .aside {
+    margin: 18px 0 0;
+    padding-top: 16px;
+    border-top: 1px dashed var(--rule);
+    font-family: var(--f-sans);
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-mute);
+    display: flex; gap: 10px; align-items: baseline;
+  }
+  .masthead .aside::before {
+    content: "~";
+    font-family: var(--f-mono);
+    font-style: normal;
+    color: var(--accent);
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  /* ─── Section heads ─────────────────────────────────── */
+  .sec {
+    border-bottom: 1px solid var(--rule);
+    padding: clamp(36px, 5vw, 64px) 0;
+  }
+  .sec:last-of-type { border-bottom: 0; }
+  .sec-head {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--gutter);
+    margin-bottom: 28px;
+    align-items: baseline;
+  }
+  .sec-num {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    display: flex; gap: 10px; align-items: center;
+  }
+  .sec-num::before {
+    content: "";
+    width: 8px; height: 8px;
+    background: var(--accent);
+    display: inline-block;
+  }
+  .sec-title {
+    margin: 0;
+    font-family: var(--f-sans);
+    font-weight: 500;
+    font-size: clamp(28px, 3.6vw, 44px);
+    letter-spacing: -.02em;
+    line-height: 1;
+    color: var(--ink);
+  }
+  @media (max-width: 760px) {
+    .sec-head { grid-template-columns: 1fr; gap: 12px; }
+  }
+
+  /* ─── Role rows: spec-sheet ─────────────────────────── */
+  .row {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--gutter);
+    padding: 28px 0;
+    border-top: 1px solid var(--rule);
+    position: relative;
+  }
+  .row:first-of-type { border-top: 0; padding-top: 8px; }
+  .row .year {
+    font-family: var(--f-sans);
+    font-weight: 500;
+    color: var(--ink);
+    line-height: .9;
+    letter-spacing: -.03em;
+    font-variant-numeric: tabular-nums;
+  }
+  .row .year .y {
+    font-size: clamp(48px, 6vw, 76px);
+    display: block;
+  }
+  .row .year .ydash {
+    color: var(--ink-mute);
+    font-size: 13px;
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+  }
+  .row .year .ydash b { color: var(--ink); font-weight: 500; }
+  .row .body { min-width: 0; }
+  .row h3 {
+    margin: 0 0 4px;
+    font-family: var(--f-sans);
+    font-weight: 500;
+    font-size: clamp(20px, 2vw, 26px);
+    letter-spacing: -.012em;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .row h3 .at {
+    color: var(--ink-mute);
+    font-weight: 400;
+    margin: 0 .35em;
+  }
+  .row h3 .org { color: var(--accent); }
+  [data-theme="light"] .row h3 .org { color: var(--ink); border-bottom: 2px solid var(--accent); padding-bottom: 1px; }
+  .row .live {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-left: 12px;
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    vertical-align: 3px;
+  }
+  [data-theme="light"] .row .live { color: var(--ink); }
+  .row p {
+    margin: 12px 0 0;
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 68ch;
+    text-wrap: pretty;
+  }
+  .row p em { color: var(--ink); font-style: normal; font-weight: 500; }
+  .row .meta {
+    margin-top: 14px;
+    display: flex; gap: 6px 14px; flex-wrap: wrap;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+  .row .meta span { display: inline-flex; align-items: center; gap: 6px; }
+  .row .meta span::before {
+    content: ""; width: 4px; height: 4px;
+    background: var(--ink-mute);
+    display: inline-block;
+  }
+  @media (max-width: 760px) {
+    .row { grid-template-columns: 1fr; gap: 14px; }
+    .row .year .y { font-size: 44px; }
+  }
+
+  /* ─── Footer ────────────────────────────────────────── */
+  .foot {
+    padding: clamp(40px, 6vw, 80px) 0;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--gutter);
+  }
+  .foot .label {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    display: flex; gap: 10px; align-items: center;
+  }
+  .foot .label::before {
+    content: "";
+    width: 8px; height: 8px;
+    background: var(--accent);
+  }
+  .foot .cta {
+    font-family: var(--f-sans);
+    font-weight: 500;
+    font-size: clamp(28px, 3.6vw, 44px);
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    margin: 0 0 24px;
+    max-width: 22ch;
+  }
+  .foot .cta .accent { color: var(--accent); }
+  [data-theme="light"] .foot .cta .accent { color: var(--ink); border-bottom: 3px solid var(--accent); padding-bottom: 2px; }
+  .foot-links {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    border-top: 1px solid var(--rule);
+  }
+  .foot-links a {
+    padding: 18px 16px 18px 0;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px;
+    border-bottom: 1px solid var(--rule);
+    transition: color .15s, padding .2s, background .2s;
+    font-family: var(--f-mono);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--ink);
+    min-width: 0;
+  }
+  .foot-links a + a { border-left: 1px solid var(--rule); padding-left: 18px; }
+  .foot-links a .v {
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    min-width: 0;
+  }
+  .foot-links a:hover { color: var(--accent); }
+  [data-theme="light"] .foot-links a:hover { color: var(--ink); background: var(--accent); padding-left: 12px; }
+  .foot-links a .arr { color: var(--ink-mute); font-family: var(--f-mono); flex-shrink: 0; }
+  @media (max-width: 760px) {
+    .foot { grid-template-columns: 1fr; }
+    .foot-links { grid-template-columns: 1fr; }
+    .foot-links a + a { border-left: 0; padding-left: 0; }
+  }
+
+  .strip {
+    border-top: 1px solid var(--rule);
+    padding: 14px 0 18px;
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    display: flex; justify-content: flex-start; gap: 16px;
+  }
+</style>
 </head>
+<body>
 
-<body id="page-top">
+<div class="grid-bg" aria-hidden="true"></div>
 
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="sideNav">
-    <a class="navbar-brand js-scroll-trigger" href="#page-top">
-      <span class="d-block d-lg-none">Tiago F. Marques</span>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#experience">Experience</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#education">Education</a>
-        </li>
-      </ul>
+<div class="shell">
+
+  <!-- ─── STATUS BAR ─────────────────────────────────── -->
+  <div class="statusbar">
+    <div class="left">
+      <span><span class="live-dot"></span>&nbsp;&nbsp;Available · remote</span>
+      <span><b>Santa Maria da Feira</b>, PT</span>
     </div>
-  </nav>
+    <div class="mid">tiagofigmarques.dev</div>
+    <div class="right">
+      <span>v.<span id="ver">2026.05</span></span>
+    </div>
+  </div>
 
-  <div class="container-fluid p-0">
+  <!-- ─── MASTHEAD ───────────────────────────────────── -->
+  <header class="masthead">
+    <h1>
+      <span class="name">Tiago Marques</span>
+      <span class="dim">&mdash;&nbsp;engineer building</span>
+      <span class="swap" aria-label="distributed systems">
+        <ul>
+          <li>distributed systems</li>
+          <li>backend platforms</li>
+          <li>opinionated software</li>
+          <li>with precision &amp; care</li>
+          <li>responsibly</li>
+          <li>distributed systems</li>
+        </ul>
+      </span>
+    </h1>
 
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
-      <div class="w-100">
-        <h1 class="mb-0 name-logo">Tiago <span class="name-last">Marques</span></h1>
-        <div class="about-location">Santa Maria da Feira · Portugal</div>
-        <div class="about-email">
-          <a href="mailto:hello@tiagofigmarques.dev">hello@tiagofigmarques.dev</a>
-        </div>
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/tiagofigmarques">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://github.com/tiagofigmarques">
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-        <p class="lead mb-4">Hi! I'm Tiago Figueiredo Marques, born in '89, a <strong>Software Engineer</strong> with <strong>12+ years of experience</strong>, working on <strong>large-scale distributed systems, e-commerce platforms, and microservices architecture</strong>, delivering high-impact solutions for global brands.
+    <div class="sub">
+      <div class="role-line">
+        <span>Senior&nbsp;Software&nbsp;Engineer</span>
+        <span class="pill">12+ yrs</span>
+        <span class="pill">Remote &middot; Portugal</span>
+        <span class="pill" style="color: var(--accent); border-color: color-mix(in oklab, var(--accent) 45%, transparent)">Available</span>
+      </div>
+
+      <p class="bio">
+        <strong>Hi, I&rsquo;m Tiago.</strong> Twelve years writing the backend
+        plumbing behind high-traffic e-commerce, healthcare and ed-tech &mdash;
+        mostly for global brands you&rsquo;ve heard of. I care about
+        <em class="kw">architecture</em>, <em class="kw">quality</em>,
+        <em class="kw">security</em> and <em class="kw">responsibility</em>.
+      </p>
+
+      <p class="aside">Off the keyboard: gravel rides, decent wine, two small humans.</p>
+    </div>
+  </header>
+
+  <!-- ─── EXPERIENCE ─────────────────────────────────── -->
+  <section class="sec">
+    <div class="sec-head">
+      <span class="sec-num">Experience</span>
+      <h2 class="sec-title">A dozen years, deep&nbsp;ownership.</h2>
+    </div>
+
+    <article class="row">
+      <div class="year">
+        <span class="y">2019</span>
+        <span class="ydash">&rarr; <b>Now</b></span>
+      </div>
+      <div class="body">
+        <h3>
+          Senior Software Engineer<span class="at">/</span><span class="org">Kodly</span>
+          <span class="live"><span class="live-dot"></span>Current</span>
+        </h3>
+        <p>
+          Engineering consultancy work, with two long client engagements on the e-commerce side
+          of fashion retail. Currently at <em>MANGO</em>, building high-traffic backend services
+          for one of Europe&rsquo;s largest fashion retailers. Previously at <em>Inditex</em>
+          (Zara, Massimo Dutti, Pull&amp;Bear) on multi-brand, multi-region platform services.
         </p>
-        <p class="about-personal">Also into gravel and mountain-bike riding, good wines, and a proud dad of two.</p>
-      </div>
-    </section>
-
-    <hr class="m-0">
-
-    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
-      <div class="w-100">
-        <h2 class="mb-5">Experience</h2>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 class="mb-0">Senior Software Engineer</h3>
-            <div class="subheading mb-3">Kodly.io, Porto, Portugal</div>
-            <p>As a software engineering consultant at Kodly, I've taken on different roles across clients. Primarily focused on e-commerce for major international fashion brands, but also contributed to projects in healthcare and other sectors.</p>
-
-            <div class="resume-subproject-list">
-              <div class="resume-subproject-item">
-                <h4 class="mb-1">MANGO <span class="text-secondary">| Barcelona, Spain</span> <span class="badge-current">Current</span></h4>
-                <p>Contributing to the design and development of high-traffic e-commerce backend services for one of Europe's largest fashion retailers. Building scalable microservices handling millions of daily transactions across global markets.</p>
-                <div class="tags">
-                  <span class="tag">Java</span>
-                  <span class="tag">Kotlin</span>
-                  <span class="tag">Maven</span>
-                  <span class="tag">Spring Boot</span>
-                  <span class="tag">Docker</span>
-                  <span class="tag">Kubernetes</span>
-                  <span class="tag">ELK Stack</span>
-                  <span class="tag">Atlas MongoDB</span>
-                  <span class="tag">Confluent Kafka</span>
-                </div>
-              </div>
-
-              <div class="resume-subproject-item">
-                <h4 class="mb-1">INDITEX <span class="text-secondary">| Porto, Portugal</span></h4>
-                <p>Developed e-commerce platform services for the world's largest fashion group (<em>Zara, Massimo Dutti, Pull&Bear</em>). Contributed to backend systems supporting multi-brand, multi-region retail operations at scale.</p>
-                <div class="tags">
-                  <span class="tag">Java</span>
-                  <span class="tag">Maven</span>
-                  <span class="tag">Spring Boot</span>
-                  <span class="tag">Docker</span>
-                  <span class="tag">Kubernetes</span>
-                  <span class="tag">Atlas MongoDB</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">2019 - Present</span>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 class="mb-0">Software Engineer</h3>
-            <div class="subheading mb-3">Adtalem Global Education</div>
-            <p>Built and maintained <strong>EdTech</strong> web platforms in the accounting certifications domain, serving thousands of students preparing for professional exams. Focused on search optimization and backend performance.</p>
-            <div class="tags">
-              <span class="tag">Kotlin</span>
-              <span class="tag">Java</span>
-              <span class="tag">Spring Boot</span>
-              <span class="tag">AWS</span>
-              <span class="tag">ELK Stack</span>
-              <span class="tag">Gradle</span>
-              <span class="tag">Redis</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">Apache Lucene</span>
-            </div>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">2018 - 2019</span>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 class="mb-0">Software Engineer</h3>
-            <div class="subheading mb-3">Mindera, Porto, Portugal</div>
-            <p>Backend engineer on large-scale applications built on microservices architecture, delivering features across multiple client projects with <strong>CI/CD</strong> pipelines and agile practices.</p>
-            <div class="tags">
-              <span class="tag">C#</span>
-              <span class="tag">Java</span>
-              <span class="tag">Spring Boot</span>
-              <span class="tag">GoCD</span>
-              <span class="tag">Jenkins</span>
-            </div>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">2015 - 2017</span>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 class="mb-0">Systems Analyst</h3>
-            <div class="subheading mb-3">SoftINSA - IBM, Lisbon, Portugal</div>
-            <p>Integrated an agile development team as a consultant, maintaining and evolving web applications for <strong>Vodafone Group Portugal</strong>. Worked across <strong>Java</strong> and <strong>.NET</strong> stacks in an enterprise environment.</p>
-            <div class="tags">
-              <span class="tag">Java</span>
-              <span class="tag">Spring</span>
-              <span class="tag">C#</span>
-              <span class="tag">Microsoft Sharepoint</span>
-            </div>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">2014 - 2015</span>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
-          <div class="resume-content">
-            <h3 class="mb-0">Software Engineer</h3>
-            <div class="subheading mb-3">XNFINITY</div>
-            <p>Full-stack engineer on PaperVault, a digital receipt solution. Owned the full development lifecycle from business logic modelling to front-end and back-end implementation, deployment, and support.</p>
-            <div class="tags">
-              <span class="tag">C#</span>
-              <span class="tag">.NET MVC</span>
-              <span class="tag">Web API</span>
-              <span class="tag">Windows Azure</span>
-            </div>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">2012 - 2014</span>
-          </div>
+        <div class="meta">
+          <span>Porto, PT</span>
+          <span>E-commerce</span>
+          <span>Backend platform</span>
         </div>
       </div>
-    </section>
+    </article>
 
-    <hr class="m-0">
-
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="education">
-      <div class="w-100">
-        <h2 class="mb-5">Education</h2>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 class="mb-0">Instituto Superior de Engenharia do Porto</h3>
-            <div class="subheading mb-3">Master's Degree (unfinished)</div>
-            <h4 class="mb-2">Knowledge and Decision Technologies, Computer Engineering</h4>
-            <p>Aiming to deepen the knowledge and skills obtained in the previous degree and presently finishing the master thesis, I already successfully concluded all of the course disciplines.</p>
-            <div class="tags">
-              <span class="tag">Data Warehouse</span>
-              <span class="tag">Analytical Processing</span>
-              <span class="tag">Knowledge Based Systems</span>
-              <span class="tag">Process Modeling</span>
-              <span class="tag">Decision Support Systems</span>
-              <span class="tag">Computer Security</span>
-              <span class="tag">Semantic Web</span>
-            </div>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">2013 - 2015</span>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
-          <div class="resume-content">
-            <h3 class="mb-0">Instituto Superior de Engenharia do Porto</h3>
-            <div class="subheading mb-3">Engineer's Degree</div>
-            <h4 class="mb-2">Computer Engineering</h4>
-            <p>Engineering is about making things and this degree leverages a solid practical experience with high quality software disciplines.</p>
-            <div class="tags">
-              <span class="tag">Advanced Computing</span>
-              <span class="tag">Systems Architecture</span>
-              <span class="tag">Applications Engineering</span>
-              <span class="tag">Software Engineering</span>
-              <span class="tag">Management</span>
-            </div>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">2008 - 2013</span>
-          </div>
-        </div>
-
+    <article class="row">
+      <div class="year">
+        <span class="y">2018</span>
+        <span class="ydash">&rarr; <b>2019</b></span>
       </div>
-    </section>
+      <div class="body">
+        <h3>Software Engineer<span class="at">/</span><span class="org">Adtalem</span></h3>
+        <p>
+          EdTech platforms in the accounting-certifications space &mdash; thousands of students
+          preparing for professional exams. Focused on search relevance and backend performance.
+        </p>
+        <div class="meta">
+          <span>Porto, PT</span>
+          <span>EdTech</span>
+          <span>Search</span>
+          <span>Performance</span>
+        </div>
+      </div>
+    </article>
 
-    <hr class="m-0">
+    <article class="row">
+      <div class="year">
+        <span class="y">2015</span>
+        <span class="ydash">&rarr; <b>2017</b></span>
+      </div>
+      <div class="body">
+        <h3>Software Engineer<span class="at">/</span><span class="org">Mindera</span></h3>
+        <p>
+          Backend on large-scale microservice applications, shipping features across multiple
+          client projects with proper CI/CD and an honest agile rhythm.
+        </p>
+        <div class="meta">
+          <span>Porto, PT</span>
+          <span>Microservices</span>
+          <span>CI/CD</span>
+        </div>
+      </div>
+    </article>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <article class="row">
+      <div class="year">
+        <span class="y">2014</span>
+        <span class="ydash">&rarr; <b>2015</b></span>
+      </div>
+      <div class="body">
+        <h3>Systems Analyst<span class="at">/</span><span class="org">SoftINSA / IBM</span></h3>
+        <p>
+          Consultancy engagement at <em>Vodafone Group Portugal</em> &mdash; maintaining and
+          evolving enterprise web applications across heterogeneous stacks.
+        </p>
+        <div class="meta">
+          <span>Lisbon, PT</span>
+          <span>Telco</span>
+          <span>Enterprise</span>
+        </div>
+      </div>
+    </article>
 
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <article class="row">
+      <div class="year">
+        <span class="y">2012</span>
+        <span class="ydash">&rarr; <b>2014</b></span>
+      </div>
+      <div class="body">
+        <h3>Software Engineer<span class="at">/</span><span class="org">XNFINITY</span></h3>
+        <p>
+          Full-stack on <em>PaperVault</em>, a digital-receipt product. Owned the full lifecycle:
+          domain modelling, front-end, back-end, deployment, on-call.
+        </p>
+        <div class="meta">
+          <span>Porto, PT</span>
+          <span>Full-stack</span>
+          <span>SaaS</span>
+          <span>On-call</span>
+        </div>
+      </div>
+    </article>
+  </section>
 
-  <!-- Custom scripts for this template -->
-  <script src="js/resume.min.js"></script>
+  <!-- ─── EDUCATION ──────────────────────────────────── -->
+  <section class="sec">
+    <div class="sec-head">
+      <span class="sec-num">Education</span>
+      <h2 class="sec-title">Instituto Superior de Engenharia&nbsp;do&nbsp;Porto.</h2>
+    </div>
+
+    <article class="row">
+      <div class="year">
+        <span class="y">2013</span>
+        <span class="ydash">&rarr; <b>2015</b></span>
+      </div>
+      <div class="body">
+        <h3>Master&rsquo;s<span class="at">/</span><span class="org">Knowledge &amp; Decision Tech.</span></h3>
+        <p>Coursework complete. Thesis pending.</p>
+        <div class="meta">
+          <span>ISEP</span>
+          <span>Postgrad</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="row">
+      <div class="year">
+        <span class="y">2008</span>
+        <span class="ydash">&rarr; <b>2013</b></span>
+      </div>
+      <div class="body">
+        <h3>Engineer&rsquo;s Degree<span class="at">/</span><span class="org">Computer Engineering</span></h3>
+        <p>Software engineering, systems architecture, applied development.</p>
+        <div class="meta">
+          <span>ISEP</span>
+          <span>BSc + MEng</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ─── FOOT / CONTACT ─────────────────────────────── -->
+  <section class="foot">
+    <div>
+      <span class="label">Contact</span>
+    </div>
+    <div>
+      <h3 class="cta">Backend work, advisory, <span class="accent">quiet&nbsp;collaborations</span>.</h3>
+      <div class="foot-links">
+        <a href="mailto:hello@tiagofigmarques.dev">
+          <span class="v">hello@tiagofigmarques.dev</span>
+          <span class="arr">&rarr;</span>
+        </a>
+        <a href="https://www.linkedin.com/in/tiagofigmarques" target="_blank" rel="noopener">
+          <span class="v">LinkedIn</span>
+          <span class="arr">&#x2197;</span>
+        </a>
+        <a href="https://github.com/tiagofigmarques" target="_blank" rel="noopener">
+          <span class="v">GitHub</span>
+          <span class="arr">&#x2197;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COLOPHON ───────────────────────────────────── -->
+  <div class="strip">
+    <span>&copy; <span id="yr"></span> Tiago F. Marques</span>
+  </div>
+
+</div><!-- /shell -->
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
